@@ -36,7 +36,24 @@ public class Game {
                     isLetterInWord = true;
                 }
             }
-            
+
+            // Estructura de control condicional para verificar si la palabra secreta fue adivinada
+            if (!isLetterInWord) {
+                attempts++;
+                System.out.println("Fallaste! Te quedan " + (attemptsMax - attempts) + " intentos");
+            }
+
+            // Estructura de control condicional en la cual si la palabra es igual a la palabra secreta
+            if (String.valueOf(charSecretWord).equals(secretWordString)) {
+                System.out.println("Felicidades! Adivinaste la palabra secreta: " + secretWordString);
+                isGameOver = true;
+            }
+        }
+
+        // Estructura de control condicional para verificar si el juego termino
+        if (!isGameOver) {
+            System.out.println("GAME OVER!");
+            System.out.println("¡Que pena te quedaste sin intentos! La palabra secreta era: " + secretWordString);
         }
     }
 }
