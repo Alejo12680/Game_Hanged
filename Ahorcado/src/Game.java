@@ -10,7 +10,7 @@ public class Game {
         String secretWordString = "hello";
         int attemptsMax = 10;
         int attempts = 0;
-        boolean isGameOver = false;
+        boolean isGame = false;
 
         // Array de caracteres para la palabra secreta 
         char[] charSecretWord = new char[secretWordString.length()];
@@ -21,11 +21,13 @@ public class Game {
         }
 
         // Estructura de control iterativa para preguntar al usuario por una letra (Bucle)
-        while (attempts < attemptsMax && !isGameOver) {
-            System.out.println("Palabra a Adivinar: " + String.valueOf(charSecretWord));
+        while (attempts < attemptsMax && !isGame) {
+            // El valueOf convierte un array de caracteres a un string ya que no se puede imprimir un array de caracteres y se utiliza el método equals para comparar dos strings, el valueOf se usa cuando tenemos una palabra de chars y queremos convertirla a un string
+            System.out.println("Palabra a Adivinar: " + String.valueOf(charSecretWord) + " (" + secretWordString.length() + " letras)");
             System.out.println("Introduce una letra por favor: ");
-            // Leer la letra ingresada por el usuario y si ingresa más de una letra solo se toma la primera
-            char letter = scanner.next().charAt(0);
+
+            // Lee la letra ingresada por el usuario y si ingresa más de una letra solo se toma la primera, ademas convertimos la letra ingresada en minúscula.
+            char letter = Character.toLowerCase(scanner.next().charAt(0));
 
             // Estructura de control iterativa para comparar la letra ingresada con la palabra secreta (Bucle)
             boolean isLetterInWord = false;
@@ -45,15 +47,18 @@ public class Game {
 
             // Estructura de control condicional en la cual si la palabra es igual a la palabra secreta
             if (String.valueOf(charSecretWord).equals(secretWordString)) {
-                System.out.println("Felicidades! Adivinaste la palabra secreta: " + secretWordString);
-                isGameOver = true;
+                System.out.println("¡Felicidades! Adivinaste la palabra secreta: " + secretWordString);
+                isGame = true;
             }
         }
 
         // Estructura de control condicional para verificar si el juego termino
-        if (!isGameOver) {
+        if (!isGame) {
             System.out.println("GAME OVER!");
             System.out.println("¡Que pena te quedaste sin intentos! La palabra secreta era: " + secretWordString);
         }
+
+        // Cerrar el Scanner
+        scanner.close();
     }
 }
