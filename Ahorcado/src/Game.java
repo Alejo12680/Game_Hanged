@@ -1,13 +1,18 @@
 import java.util.Scanner;
+import java.util.Random;
+
 
 public class Game {
     public static void main(String[] args) throws Exception {
         System.out.println("Welcome to the game!");
         // Clase Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
         // Variables
-        String secretWordString = "hello";
+        String[] words = { "hola", "palabra", "java", "programar", "languaje", "computadora", "teclado", "mouse", "monitor", "pantalla" };
+        int randomIndex = random.nextInt(words.length);
+        String secretWordString = words[randomIndex];
         int attemptsMax = 10;
         int attempts = 0;
         boolean isGame = false;
