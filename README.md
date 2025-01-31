@@ -11,7 +11,7 @@ Se realizó un juego del ahorcado con el lenguaje de **Java**, donde se debe ir 
 - Arreglos.
 - Estructura de control: Iterativa (bucles **for** y **while**).
 - Clase String
-	> Se utilizaron algunos métodos como **valueOf**, **charAt** y **length()**.
+	> Se utilizarón algunos métodos como **valueOf**, **charAt** y **length()**.
 	
 - La clase Character y su método **toLowerCase**.
 - Estructura de control condicional (**if**).
